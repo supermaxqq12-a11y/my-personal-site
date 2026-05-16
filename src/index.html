@@ -1,0 +1,18 @@
+---
+layout: layout.njk
+title: Главная
+---
+
+<h1>Привет</h1>
+<p>Это мой личный сайт. Ниже собраны мои заметки, проекты и расчеты интерфейсов.</p>
+
+<hr>
+
+<h2>Заметки</h2>
+<ul>
+    {%- for post in collections.post -%}
+    <li>
+        <a href="{{ post.url }}">{{ post.data.title }}</a>
+    </li>
+    {%- endfor -%}
+</ul>
