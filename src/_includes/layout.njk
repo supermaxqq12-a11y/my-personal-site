@@ -3,27 +3,78 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>{{ title }} — Личный сайт</title>
+	<title>{{ title }} — Личный site</title>
 	<style>
-		body,html{margin:0;padding:0}body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;padding:32px 16px 32px;font-size:16px;line-height:1.5}@media (min-width:40em){body{font-size:20px;padding:64px 32px 64px}}@media (min-width:52em){body{font-size:24px;padding:60px 64px 128px}}
+		/* 1. РЕГИСТРАЦИЯ ШРИФТОВ FORMA DJR */
+		@font-face {
+			font-family: 'Forma DJR Banner';
+			src: url('/fonts/FormaDJRCyrillicBanner-Bold.woff2') format('woff2');
+			font-weight: bold;
+			font-style: normal;
+		}
+		@font-face {
+			font-family: 'Forma DJR Text';
+			src: url('/fonts/FormaDJRCyrillicText-Regular.woff2') format('woff2');
+			font-weight: normal;
+			font-style: normal;
+		}
+		@font-face {
+			font-family: 'Forma DJR Text';
+			src: url('/fonts/FormaDJRCyrillicText-Medium.woff2') format('woff2');
+			font-weight: 500;
+			font-style: normal;
+		}
+
+		/* 2. БАЗОВЫЕ СТИЛИ СТРАНИЦЫ */
+		body,html{margin:0;padding:0}
 		
-		/* Настройки подвала сайта для правильного выравнивания элементов */
-		footer{color:#ccc;margin-top:5em;display:flex;justify-content:space-between;flex-wrap:wrap;max-width:540px;}
+		body {
+			font-family: "Forma DJR Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+			font-weight: normal;
+			padding: 60px 64px 128px;
+			font-size: 24px;
+			line-height: 1.5;
+		}
+		@media (min-width:40em){body{font-size:20px;padding:64px 32px 64px}}
+		@media (min-width:52em){body{font-size:24px;padding:60px 64px 128px}}
 		
-		/* Стили для аккуратной серой подписи справа */
+		/* Настройки подвала сайта под новую ширину */
+		footer{color:#ccc;margin-top:5em;display:flex;justify-content:space-between;flex-wrap:wrap;max-width:680px;}
+		
+		/* Маленькая серая подпись автора основы справа */
 		.credits{font-size:0.7em;color:#aaa;margin-left:auto;padding-top:4px;}
 		.credits a{color:#aaa;background-image:linear-gradient(rgba(170,170,170,.13),rgba(170,170,170,.13))}
 		.credits a:hover{color:#0075ff;background-image:linear-gradient(rgba(0,117,255,1),rgba(0,117,255,1))}
 		
-		/* Оптимальная ширина контента, чтобы справа оставалось свободное место */
-		section{max-width:1280px;padding-right:48px}
+		/* УВЕЛИЧИЛИ ШИРИНУ И УМЕНЬШИЛИ ОТСТУП СПРАВА: текст заполнит больше места */
+		section{max-width:680px;padding-right:24px}
 		
-		h1{font-size:32px;line-height:1.25;margin:.5em 0 0}@media (min-width:40em){h1{font-size:48px}}@media (min-width:52em){h1{font-size:64px}}h2{font-size:28px;line-height:1.25;margin:.5em 0 0}@media (min-width:40em){h2{font-size:42px}}@media (min-width:52em){h2{font-size:56px}}
+		/* 3. СТИЛИ ЗАГОЛОВКОВ */
+		h1, h2 {
+			font-family: "Forma DJR Banner", "Helvetica Neue", Helvetica, Arial, sans-serif;
+			font-weight: bold;
+			line-height: 1.25;
+			margin: .5em 0 0;
+		}
+		h1{font-size:32px;}@media (min-width:40em){h1{font-size:48px}}@media (min-width:52em){h1{font-size:64px}}
+		h2{font-size:28px;}@media (min-width:40em){h2{font-size:42px}}@media (min-width:52em){h2{font-size:56px}}
 		
-		/* Ограничили ширину разделительной линии под размер контента */
-		hr{margin:3em 0;max-width:540px;border:0;border-bottom:1px solid #f6f6f6}@media (min-width:40em){hr{margin:2em 0}}
+		/* Разделительная линия теперь тоже подстраивается под новую ширину */
+		hr{margin:3em 0;max-width:680px;border:0;border-bottom:1px solid #f6f6f6}@media (min-width:40em){hr{margin:2em 0}}
 		
-		a{text-decoration:none;color:#0075ff;background:0 100%/100% 1px repeat-x;background-image:linear-gradient(rgba(0,117,255,.13),rgba(0,117,255,.13))}@media (min-width:40em){a{background-size:100% 2px}}a:hover{background-image:linear-gradient(rgba(0,117,255,1),rgba(0,117,255,1))}ul{margin-top:1em;padding-left:2em;list-style:none}ul li+li{margin-top:.25em}
+		/* ОБЫЧНЫЕ ССЫЛКИ НА САЙТЕ */
+		a{text-decoration:none;color:#0075ff;background:0 100%/100% 1px repeat-x;background-image:linear-gradient(rgba(0,117,255,.13),rgba(0,117,255,.13))}
+		@media (min-width:40em){a{background-size:100% 2px}}a:hover{background-image:linear-gradient(rgba(0,117,255,1),rgba(0,117,255,1))}
+		
+		/* 4. НАЗВАНИЯ ЗАМЕТОК НА ГЛАВНОЙ */
+		ul{margin-top:1em;padding-left:2em;list-style:none}
+		ul li+li{margin-top:.25em}
+		
+		ul li a {
+			font-family: "Forma DJR Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+			font-weight: 500;
+		}
+		
 		.nav-back{margin-bottom:2em;display:block;}
 	</style>
 </head>
@@ -39,7 +90,103 @@
 	</section>
 	
 	<footer>
-		<p>&copy; дизайн из май патион</p>
+		<p>&copy; 2026 Личный сайт</p>
+		<span class="credits">Основа взята с <a href="https://github.com/ImFOXMF/ivankapcov" target="_blank" rel="noopener">github.com/ImFOXMF/ivankapcov</a></span>
+	</footer>
+</body>
+</html><!doctype html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>{{ title }} — Личный site</title>
+	<style>
+		/* 1. РЕГИСТРАЦИЯ ШРИФТОВ FORMA DJR */
+		@font-face {
+			font-family: 'Forma DJR Banner';
+			src: url('/fonts/FormaDJRCyrillicBanner-Bold.woff2') format('woff2');
+			font-weight: bold;
+			font-style: normal;
+		}
+		@font-face {
+			font-family: 'Forma DJR Text';
+			src: url('/fonts/FormaDJRCyrillicText-Regular.woff2') format('woff2');
+			font-weight: normal;
+			font-style: normal;
+		}
+		@font-face {
+			font-family: 'Forma DJR Text';
+			src: url('/fonts/FormaDJRCyrillicText-Medium.woff2') format('woff2');
+			font-weight: 500;
+			font-style: normal;
+		}
+
+		/* 2. БАЗОВЫЕ СТИЛИ СТРАНИЦЫ */
+		body,html{margin:0;padding:0}
+		
+		body {
+			font-family: "Forma DJR Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+			font-weight: normal;
+			padding: 32px 16px 32px;
+			font-size: 16px;
+			line-height: 1.5;
+		}
+		@media (min-width:40em){body{font-size:20px;padding:64px 32px 64px}}
+		@media (min-width:52em){body{font-size:24px;padding:60px 64px 128px}}
+		
+		/* Настройки подвала сайта под новую ширину */
+		footer{color:#ccc;margin-top:5em;display:flex;justify-content:space-between;flex-wrap:wrap;max-width:680px;}
+		
+		/* Маленькая серая подпись автора основы справа */
+		.credits{font-size:0.7em;color:#aaa;margin-left:auto;padding-top:4px;}
+		.credits a{color:#aaa;background-image:linear-gradient(rgba(170,170,170,.13),rgba(170,170,170,.13))}
+		.credits a:hover{color:#0075ff;background-image:linear-gradient(rgba(0,117,255,1),rgba(0,117,255,1))}
+		
+		/* УВЕЛИЧИЛИ ШИРИНУ И УМЕНЬШИЛИ ОТСТУП СПРАВА: текст заполнит больше места */
+		section{max-width:680px;padding-right:24px}
+		
+		/* 3. СТИЛИ ЗАГОЛОВКОВ */
+		h1, h2 {
+			font-family: "Forma DJR Banner", "Helvetica Neue", Helvetica, Arial, sans-serif;
+			font-weight: bold;
+			line-height: 1.25;
+			margin: .5em 0 0;
+		}
+		h1{font-size:32px;}@media (min-width:40em){h1{font-size:48px}}@media (min-width:52em){h1{font-size:64px}}
+		h2{font-size:28px;}@media (min-width:40em){h2{font-size:42px}}@media (min-width:52em){h2{font-size:56px}}
+		
+		/* Разделительная линия теперь тоже подстраивается под новую ширину */
+		hr{margin:3em 0;max-width:680px;border:0;border-bottom:1px solid #f6f6f6}@media (min-width:40em){hr{margin:2em 0}}
+		
+		/* ОБЫЧНЫЕ ССЫЛКИ НА САЙТЕ */
+		a{text-decoration:none;color:#0075ff;background:0 100%/100% 1px repeat-x;background-image:linear-gradient(rgba(0,117,255,.13),rgba(0,117,255,.13))}
+		@media (min-width:40em){a{background-size:100% 2px}}a:hover{background-image:linear-gradient(rgba(0,117,255,1),rgba(0,117,255,1))}
+		
+		/* 4. НАЗВАНИЯ ЗАМЕТОК НА ГЛАВНОЙ */
+		ul{margin-top:1em;padding-left:2em;list-style:none}
+		ul li+li{margin-top:.25em}
+		
+		ul li a {
+			font-family: "Forma DJR Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+			font-weight: 500;
+		}
+		
+		.nav-back{margin-bottom:2em;display:block;}
+	</style>
+</head>
+<body>
+	<section>
+		{# Если мы не на главной странице, показываем навигацию назад #}
+		{% if page.url != "/" %}
+			<a href="/" class="nav-back">← На главную</a>
+		{% endif %}
+		
+		{# Сюда движок подставит текст страницы или заметки #}
+		{{ content | safe }}
+	</section>
+	
+	<footer>
+		<p>&copy; 2026 Личный сайт</p>
 		<span class="credits">Основа взята с <a href="https://github.com/ImFOXMF/ivankapcov" target="_blank" rel="noopener">github.com/ImFOXMF/ivankapcov</a></span>
 	</footer>
 </body>
