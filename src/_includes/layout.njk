@@ -38,16 +38,36 @@
 		@media (min-width:40em){body{font-size:20px;padding:64px 32px 64px}}
 		@media (min-width:52em){body{font-size:24px;padding:60px 64px 128px}}
 		
-		/* Подвал растягивается на всю ширину и получил отступ справа 128px */
-		footer{color:#ccc;margin-top:5em;display:flex;justify-content:space-between;flex-wrap:wrap;max-width:100%;padding-right:128px;box-sizing:border-box;}
+		/* ПОДВАЛ: на смартфонах отступы по бокам аккуратные, на компах — справа 128px */
+		footer {
+			color: #ccc;
+			margin-top: 5em;
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			max-width: 100%;
+			padding-right: 16px;
+			box-sizing: border-box;
+		}
+		@media (min-width:48em) {
+			footer { padding-right: 128px; }
+		}
 		
 		/* Маленькая серая подпись автора основы справа */
 		.credits{font-size:0.7em;color:#aaa;margin-left:auto;padding-top:4px;}
 		.credits a{color:#aaa;background-image:linear-gradient(rgba(170,170,170,.13),rgba(170,170,170,.13))}
 		.credits a:hover{color:#0075ff;background-image:linear-gradient(rgba(0,117,255,1),rgba(0,117,255,1))}
 		
-		/* ИЗМЕНИЛИ: Текст занимает всю ширину, а отступ справа теперь 128px */
-		section{max-width:100%;padding-right:128px;box-sizing:border-box;}
+		/* ТЕКСТОВЫЙ БЛОК: адаптивные отступы */
+		section {
+			max-width: 100%;
+			padding-right: 16px; /* На телефонах до ~768px текст тянется почти от края до края */
+			box-sizing: border-box;
+		}
+		/* Как только экран шире телефона (планшеты, ноутбуки, мониторы) — включаем поле в 128px */
+		@media (min-width:48em) {
+			section { padding-right: 128px; }
+		}
 		
 		/* 3. СТИЛИ ЗАГОЛОВКОВ */
 		h1, h2 {
@@ -59,7 +79,7 @@
 		h1{font-size:32px;}@media (min-width:40em){h1{font-size:48px}}@media (min-width:52em){h1{font-size:64px}}
 		h2{font-size:28px;}@media (min-width:40em){h2{font-size:42px}}@media (min-width:52em){h2{font-size:56px}}
 		
-		/* Линия тоже тянется до правого края с учетом нового отступа */
+		/* Линия тоже адаптируется под экраны */
 		hr{margin:3em 0;max-width:100%;border:0;border-bottom:1px solid #f6f6f6}@media (min-width:40em){hr{margin:2em 0}}
 		
 		/* ОБЫЧНЫЕ ССЫЛКИ НА САЙТЕ */
