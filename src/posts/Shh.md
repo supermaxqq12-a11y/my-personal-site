@@ -2,6 +2,7 @@
 layout: layout.njk
 title: Shh — рецензия альбома
 tags: posts
+permalink: /posts/shh/
 ---
 
 ## Shh — рецензия альбома
